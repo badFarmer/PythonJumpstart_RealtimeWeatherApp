@@ -1,3 +1,5 @@
+import requests
+
 
 def main():
     # print the header
@@ -21,8 +23,8 @@ def print_the_header():
 def get_html_from_web(zipcode):
 
     url = 'http://www.wunderground.com/weather-forecast/{}'.format(zipcode)
-    print(url)
-
+    #print(url)
+    response = requests.get(url)
 
 if __name__ == '__main__':
     main()
