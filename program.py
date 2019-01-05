@@ -26,7 +26,11 @@ def get_html_from_web(zipcode):
 
 def get_weather_from_html(html):
     soup = bs4.BeautifulSoup(html, 'html.parser')
-
+    loc = soup.find(class_='region-content-header').find('h1').get_text()
+    condition = soup.find(class_='condition-icon').get_text()
+    temp = soup.find(class_='wu-unit-temperature').find(class_='wu-value').get_text()
+    scale = soup.find(class_='wu-unit-temperature').find(class_='wu-label').get_text()
+    print(loc, condition, temp, scale)
 
 if __name__ == '__main__':
     main()
